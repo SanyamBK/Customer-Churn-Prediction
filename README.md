@@ -1,7 +1,7 @@
 
-# Customer Churn Prediction — Project Summary
+# Customer Churn Prediction
 
-Project summary
+### Project summary
 
 This repository contains a production-oriented implementation of a customer churn prediction pipeline for a retail bank. It includes:
 
@@ -9,13 +9,13 @@ This repository contains a production-oriented implementation of a customer chur
 - A repeatable preprocessing and feature engineering pipeline.
 - Model training, selection, evaluation, and persistence (model artifact saved for inference).
 
-Key achievements
+### Key achievements
 
 - Delivered an end-to-end pipeline: raw CSV → cleaned dataset → trained model → serialized artifact for inference (see `Part 3`).
 - Evaluated model performance using standard classification metrics (accuracy, precision/recall, F1, ROC AUC). Numerical results and plots are produced by `Part 3/main.py`.
 - Provided utilities (`model.py`) for easy integration with a web service (Flask/FastAPI) for real-time inference.
 
-Problem definition
+### Problem definition
 
 Predict whether a customer will churn (binary classification) using features such as credit score, geography, gender, age, tenure, balance, number of products, credit card ownership, active membership, and estimated salary.
 
@@ -34,12 +34,12 @@ Project structure
   - `model.py` — reusable functions: build_model(), train(), save_model(), load_model(), predict()
   - `Modified_Churn_Modelling.csv` — cleaned dataset produced during preprocessing
 
-Dataset
+### Dataset
 
 - The dataset contains customer demographic and account-related fields such as credit score, geography, gender, age, tenure, balance, number of products, has credit card, is active member, estimated salary, and churn label.
 - The cleaned `Modified_Churn_Modelling.csv` (Part 3) is provided for quick reproduction of the final training step.
 
-Approach and pipeline
+### Approach and pipeline
 
 1. Exploratory Data Analysis (Part 1)
    - Inspect distributions, missing values, and correlations.
@@ -53,7 +53,7 @@ Approach and pipeline
    - Train a classifier (e.g., logistic regression / tree-based / simple NN depending on the script).
    - Evaluate using accuracy, precision/recall, F1 score, and ROC AUC. Save the best model to disk.
 
-How to run (recommended)
+### How to run (recommended)
 
 1. From the repository root, create and activate a virtual environment and install dependencies:
 
@@ -77,7 +77,7 @@ Set-Location -LiteralPath "Customer Churn Prediction project\Part 3"
 python -c "from model import load_model, predict; m=load_model('best_model.pkl'); print(predict(m, sample_input))"
 ```
 
-Evaluation
+### Evaluation
 
 - The scripts print evaluation metrics (accuracy, confusion matrix, classification report). Check `Part 3/main.py` for exact metric outputs and saved model filename (e.g., `best_model.pkl`).
 
@@ -86,13 +86,13 @@ Web App / Integration notes
 - Part 3 includes functions that can be called from a lightweight Flask or FastAPI app to accept JSON input and return churn predictions.
 - For a production demo, build a small web form that posts customer features to an endpoint which calls `model.predict()` and returns the result.
 
-Tips and assumptions
+### Tips and assumptions
 
 - Scripts assume CSV files are present under each Part folder (paths are relative). If you move files, update paths in the scripts.
 - If you encounter missing packages, install them with pip (the main `requirements.txt` at repo root should cover the environment used when I developed the solutions).
 - Random seeds are used in training where reproducibility is desired; exact outputs may vary with environment and package versions.
 
-Sample prediction JSON
+### Sample prediction JSON
 
 Use this example as the POST body for a `/predict` endpoint or to pass to the `predict()` utility in `model.py`.
 
