@@ -7,6 +7,8 @@ This repository contains a production-oriented implementation of a customer chur
 - A repeatable preprocessing and feature engineering pipeline.
 - Model training, selection, evaluation, and persistence (model artifact saved for inference).
 
+Developed for CodeChef Weekend Dev Challenge 14: "DL Projects" — attempted on 6 Sep 2025.
+
 ### Key achievements
 
 - Delivered an end-to-end pipeline: raw CSV → cleaned dataset → trained model → serialized artifact for inference (see `Part 3`).
